@@ -5,17 +5,18 @@
 //  Created by Justin on 2022-05-11.
 //
 
-import UIKit
 import Test
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    func application(_: UIApplication,
-                     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool
-    {
+    // sdsadssddddasdadadadadsadsaqweqweqweqweqeqeqwweqeqeqeqeqeqwewqeqwweqeqweqeqwweqwweqweqeqwweqeqewqeqwwewqeqweqweqwewqeqwewqeeq
+    func application(
+        _: UIApplication,
+        didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
 
         print("AppDelegate")
         window = UIWindow(frame: UIScreen.main.bounds)

@@ -8,7 +8,7 @@ public class TestViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
-
+        // sdsadssddddasdadadadadsadsaqweqweqweqweqeqeqwweqeqeqeqeqeqwewqeqwweqeqweqeqwweqwweqweqeqwweqeqewqeqwwewqeqweqweqwewqeqwewqeeq
         view.backgroundColor = .yellow
         view.addSubview(button)
         button.setTitle("Push", for: .normal)
@@ -17,8 +17,10 @@ public class TestViewController: UIViewController {
         button.tintColor = .black
 
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            .isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            .isActive = true
 
         button.addAction(UIAction(handler: { [weak self] _ in
             print("DidDismiss")
@@ -114,8 +116,10 @@ public class ChildViewController: UIViewController {
         button.tintColor = .black
 
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            .isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            .isActive = true
 
         button.addAction(UIAction(handler: { [weak self] _ in
             self?.didPost.send(())
@@ -136,7 +140,8 @@ public class FlowController: UIViewController {
 
     public init(
         navigationController: UINavigationController,
-        flowSubject: PassthroughSubject<FlowAction, Never> = PassthroughSubject<FlowAction, Never>()
+        flowSubject: PassthroughSubject<FlowAction, Never> =
+            PassthroughSubject<FlowAction, Never>()
     ) {
         self.flowSubject = flowSubject
         navigation = navigationController

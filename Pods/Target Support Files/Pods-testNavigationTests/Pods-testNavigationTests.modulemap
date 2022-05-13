@@ -1,0 +1,6 @@
+framework module Pods_testNavigationTests {
+  umbrella header "Pods-testNavigationTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

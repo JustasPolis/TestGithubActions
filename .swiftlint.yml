@@ -1,0 +1,10 @@
+disabled_rules:
+included:
+- Test/Sources
+- Test/Tests
+- testNavigation
+- testNavigationTests
+- testNavigationUITests
+excluded:
+  - Pods
+  

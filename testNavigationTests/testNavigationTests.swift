@@ -6,13 +6,12 @@
 //
 
 import Combine
-import CombineSchedulers
+import Nimble
 import SnapshotTesting
 @testable import Test
 import XCTest
-import Nimble
 
-class testNavigationTests: XCTestCase {
+class TestNavigationTests: XCTestCase {
 
     private var flowSubject: PassthroughSubject<FlowAction, Never>!
     private var nav: UINavigationController!
@@ -23,7 +22,10 @@ class testNavigationTests: XCTestCase {
         UIView.setAnimationsEnabled(false)
         flowSubject = PassthroughSubject<FlowAction, Never>()
         nav = UINavigationController()
-        sut = FlowController(navigationController: nav, flowSubject: flowSubject)
+        sut = FlowController(
+            navigationController: nav,
+            flowSubject: flowSubject
+        )
         window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
         window.rootViewController = sut
@@ -54,7 +56,8 @@ class testNavigationTests: XCTestCase {
 
         // expectation
         XCTAssert(sut.navigation.viewControllers.count == 1)
-        XCTAssertTrue(sut.navigation.presentedViewController is TestViewController)
+        XCTAssertTrue(sut.navigation
+            .presentedViewController is TestViewController)
 
         // given
         flowSubject.send(.didDismiss)
@@ -62,7 +65,8 @@ class testNavigationTests: XCTestCase {
         // expectation
         XCTAssert(sut.navigation.topViewController is ChildViewController)
         XCTAssert(sut.navigation.viewControllers.count == 1)
-        expect(self.sut.navigation.presentedViewController).toEventually(beNil())
+        expect(self.sut.navigation.presentedViewController)
+            .toEventually(beNil())
     }
 
     func test1_TestViewController_lifeCycle() {
@@ -72,7 +76,8 @@ class testNavigationTests: XCTestCase {
 
         // expectation
         XCTAssert(sut.navigation.viewControllers.count == 1)
-        XCTAssertTrue(sut.navigation.presentedViewController is TestViewController)
+        XCTAssertTrue(sut.navigation
+            .presentedViewController is TestViewController)
 
         // given
         flowSubject.send(.didDismiss)
@@ -80,7 +85,8 @@ class testNavigationTests: XCTestCase {
         // expectation
         XCTAssert(sut.navigation.topViewController is ChildViewController)
         XCTAssert(sut.navigation.viewControllers.count == 1)
-        expect(self.sut.navigation.presentedViewController).toEventually(beNil())
+        expect(self.sut.navigation.presentedViewController)
+            .toEventually(beNil())
     }
 
     func test2_TestViewController_lifeCycle() {
@@ -90,7 +96,8 @@ class testNavigationTests: XCTestCase {
 
         // expectation
         XCTAssert(sut.navigation.viewControllers.count == 1)
-        XCTAssertTrue(sut.navigation.presentedViewController is TestViewController)
+        XCTAssertTrue(sut.navigation
+            .presentedViewController is TestViewController)
 
         // given
         flowSubject.send(.didDismiss)
@@ -98,9 +105,9 @@ class testNavigationTests: XCTestCase {
         // expectation
         XCTAssert(sut.navigation.topViewController is ChildViewController)
         XCTAssert(sut.navigation.viewControllers.count == 1)
-        expect(self.sut.navigation.presentedViewController).toEventually(beNil())
+        expect(self.sut.navigation.presentedViewController)
+            .toEventually(beNil())
     }
-
 
     func test3_TestViewController_lifeCycle() {
 
@@ -109,7 +116,8 @@ class testNavigationTests: XCTestCase {
 
         // expectation
         XCTAssert(sut.navigation.viewControllers.count == 1)
-        XCTAssertTrue(sut.navigation.presentedViewController is TestViewController)
+        XCTAssertTrue(sut.navigation
+            .presentedViewController is TestViewController)
 
         // given
         flowSubject.send(.didDismiss)
@@ -117,6 +125,9 @@ class testNavigationTests: XCTestCase {
         // expectation
         XCTAssert(sut.navigation.topViewController is ChildViewController)
         XCTAssert(sut.navigation.viewControllers.count == 1)
-        expect(self.sut.navigation.presentedViewController).toEventually(beNil(), timeout: .seconds(1))
+        expect(self.sut.navigation.presentedViewController).toEventually(
+            beNil(),
+            timeout: .seconds(1)
+        )
     }
 }
